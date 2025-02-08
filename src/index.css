@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.gradient-border {
+    border: 1px solid transparent; /* Transparent border */
+    border-image: linear-gradient(45deg, #5fff7c, #f0ca0d); /* Gradient colors */
+    border-image-slice: 1;
+  }
+  
