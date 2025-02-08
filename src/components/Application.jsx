@@ -22,6 +22,9 @@ import reactImage from '../assets/React-icon.svg'
 import nodeImage from '../assets/Node.js_logo.svg'
 import expressImage from '../assets/Expressjs.png'
 import nextImage from '../assets/Nextjs-logo.svg'
+import { useRef } from "react";
+import emailjs from "emailjs-com";
+import Swal from "sweetalert2";
 
 const techLogos = [
   { src: htmlImage, alt: "HTML" },
@@ -32,9 +35,45 @@ const techLogos = [
   { src: expressImage, alt: "Express.js" },
   { src: nextImage, alt: "Next.js" },
 ];
+
+
+
+
 const Application = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const currentYear = new Date().getFullYear();
+
+
+    const form = useRef();
+  
+    const sendEmail = (e) => {
+      e.preventDefault();
+  
+      emailjs
+        .sendForm(
+          "service_hv6sgsg", // Replace with EmailJS Service ID
+          "template_excdzw5", // Replace with EmailJS Template ID
+          form.current,
+          "S_Sa3uyukBn429oE7" // Replace with EmailJS Public Key
+        )
+        .then(
+          (result) => {
+            console.log("Message Sent: ", result.text);
+            Swal.fire({
+              title: "Message successfully sent.",
+              icon: "success",
+              draggable: true
+            });
+          },
+          (error) => {
+            console.log("Error: ", error.text);
+            alert("Failed to send message. Please try again.");
+          }
+        );
+      
+      e.target.reset(); // Reset form after submission
+    };
+  
   return (
     <div className="min-h-screen bg-base-100">
       {/* Navbar */}
@@ -420,25 +459,31 @@ const Application = () => {
   <section id="contact" className="py-10">
     <div className="w-11/12 mx-auto">
       <h2 className="text-4xl font-bold text-center">Contact Me</h2>
-      <form className="mt-8 max-w-lg mx-auto">
-        <input
-          type="text"
-          placeholder="Your Name"
-          className="input input-bordered w-full mb-4"
-        />
-        <input
-          type="email"
-          placeholder="Your Email"
-          className="input input-bordered w-full mb-4"
-        />
-        <textarea
-          placeholder="Your Message"
-          className="textarea textarea-bordered w-full mb-4"
-        ></textarea>
-        <button type="submit" className="btn btn-primary w-full">
-          Send Message
-        </button>
-      </form>
+      <form ref={form} onSubmit={sendEmail} className="mt-8 max-w-lg mx-auto">
+      <input
+        type="text"
+        name="user_name"
+        placeholder="Your Name"
+        className="input input-bordered w-full mb-4"
+        required
+      />
+      <input
+        type="email"
+        name="user_email"
+        placeholder="Your Email"
+        className="input input-bordered w-full mb-4"
+        required
+      />
+      <textarea
+        name="message"
+        placeholder="Your Message"
+        className="textarea textarea-bordered w-full mb-4"
+        required
+      ></textarea>
+      <button type="submit" className="btn btn-primary w-full">
+        Send Message
+      </button>
+    </form>
     </div>
   </section>
 </div>
