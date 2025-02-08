@@ -78,7 +78,7 @@ const Application = () => {
               to="about"
               smooth={true}
               duration={500}
-              className="btn btn-sm text-white px-8 hover:bg-blue-500 "
+              className="btn btn-sm rounded-full text-white px-8 hover:bg-blue-500 "
             >
               About
             </Link>
@@ -86,7 +86,7 @@ const Application = () => {
               to="skills"
               smooth={true}
               duration={500}
-              className="btn btn-sm text-white px-8 hover:bg-blue-500"
+              className="btn btn-sm rounded-full text-white px-8 hover:bg-blue-500"
             >
               Skills
             </Link>
@@ -94,7 +94,7 @@ const Application = () => {
               to="projects"
               smooth={true}
               duration={500}
-              className="btn btn-sm text-white px-8 hover:bg-blue-500"
+              className="btn btn-sm rounded-full text-white px-8 hover:bg-blue-500"
             >
               Projects
             </Link>
@@ -102,11 +102,11 @@ const Application = () => {
               to="contact"
               smooth={true}
               duration={500}
-              className="btn btn-sm text-white px-8 hover:bg-blue-500"
+              className="btn btn-sm rounded-full text-white px-8 hover:bg-blue-500"
             >
               Contact
             </Link>
-            <a href={resume} download className="btn btn-sm btn-primary ">
+            <a href={resume} download className="btn btn-sm rounded-full btn-primary ">
               Download Resume
             </a>
           </div>
