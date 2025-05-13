@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import img from "../assets/AtaulKarim.png";
 import codingImage from "../assets/Coding.webp";
-import resume from "../assets/Resume.pdf";
+import resume from "../assets/Resume.pdf"; // Import your resume file
 import { FaFacebook, FaLinkedin, FaPhone } from "react-icons/fa";
 import imgProject01 from "../assets/Project01_09.jpg";
 import imgProject02 from "../assets/Project01_10.jpg";
